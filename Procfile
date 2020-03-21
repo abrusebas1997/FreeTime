@@ -1,1 +1,1 @@
-web: gunicorn activintine.wsgi --log-file -
+web: gunicorn topic.wsgi --log-file -
