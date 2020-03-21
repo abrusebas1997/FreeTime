@@ -145,6 +145,6 @@ EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 # Need to override settings? Create a local_settings.py file
 # in this directory, and add settings there.
 try:
-    from buycode.local_settings import *
+    from topic.local_settings import *
 except ImportError:
     pass

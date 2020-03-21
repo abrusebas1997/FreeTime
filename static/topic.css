@@ -10,7 +10,7 @@ body {
   user-select: none;
 }
 .welcome{
-  background-image: url("background.png");
+  background-image: url("images/background.png");
   background-size: cover;
   height: 50vw;
 }
