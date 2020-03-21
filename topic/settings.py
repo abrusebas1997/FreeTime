@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
         "localhost",
-        "activintine.herokuapp.com",
+        "freetime3.herokuapp.com",
         "127.0.0.1"]
 
 
