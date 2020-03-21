@@ -1,0 +1,13 @@
+<div class="card mb-3">
+  <h5 class="card-header ">{{ topic.title }}</h5>
+  <div class="card-body border-dark">
+    <p class="card-text text-dark">
+      {{ topic.content|truncatewords_html:30 }}
+      <hr>
+      <div class="text-right"><a href="{% url 'topic-details-project' topic.slug %}" title="Read More">Read More</a></div>
+      <div class="text-left"><a href="{% url 'topic-update-project' topic.pk %}" title="Update">Update</a></div>
+  </div>
+  <div class="card-footer">
+    <small class="text-muted">Last updated  <b>{{ topic.author.username }}</b></small>
+  </div>
+</div>

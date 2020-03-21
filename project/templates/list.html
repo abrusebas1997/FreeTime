@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h3>Topics {% if topics %}<small class="text-muted">({{ topics|length }} Topic{{ topics|length|pluralize:"s" }})</small>{% endif %}</h3>
+  <hr>
+  {% if topics %}
+    <div class="card-columns">
+      {% for topic in topics %}
+        {% include "partials/card.html" %}
+      {% endfor %}
+    </div>
+  {% else %}
+    <div class="alert alert-primary" role="alert">No pages to display.</div>
+  {% endif %}
+{% endblock %}

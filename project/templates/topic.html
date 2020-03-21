@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col m-4">
+      <h3>{{ topic.title }} <small class="text-muted">Last updated {{ topic.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ topic.author.username }}</b></small></h3>
+      <hr>
+      <p>{{ topic.content|linebreaksbr }}</p>
+      <hr>
+      <a href="{% url 'topic-list-project' %}" class="btn btn-danger ml-2">Back to List</a>
+      <a href="{% url 'topic-delete-project' topic.pk %}" class="btn btn-danger ml-2">Delete</a>
+
+    </div>
+  </div>
+{% endblock %}
