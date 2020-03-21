@@ -127,12 +127,16 @@ STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATIC_URL = '/static/'
 
 
-# # codes app settings
-# PROJECT_TOPIC_TITLE_MAX_LENGTH = 600
+# # topics app settings
+PROJECT_TOPIC_TITLE_MAX_LENGTH = 600
 #
 # # Where to redirect during authentication
-# LOGIN_REDIRECT_URL = reverse_lazy('topic-list-project')
-# LOGOUT_REDIRECT_URL = "/"
+LOGIN_REDIRECT_URL = reverse_lazy('topic-list-project')
+LOGOUT_REDIRECT_URL = "/"
+
+# Emails
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
 
 # PROTIP:
 # Need to override settings? Create a local_settings.py file
