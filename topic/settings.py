@@ -26,7 +26,10 @@ SECRET_KEY = 'fpt@qi04b)@dpr-&dmme&k=(a82+qbwo6gbm(662r4l_!)hi4e'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+        "localhost",
+        "activintine.herokuapp.com",
+        "127.0.0.1"]
 
 
 # Application definition
