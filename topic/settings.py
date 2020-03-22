@@ -28,7 +28,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
         "localhost",
-        "freetime1.herokuapp.com",
+        "qfreetime.herokuapp.com",
         "127.0.0.1"]
 
 
