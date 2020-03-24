@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic
 from django.urls import reverse_lazy
 
@@ -64,13 +64,9 @@ def food_image_view(request):
         if form.is_valid():
             form.save()
             return redirect('foods')
-
-
     else:
         form = FoodForm()
     return render(request, 'new_food.html', {'form' : form})
-
-
 
 def display_food_images(request):
 

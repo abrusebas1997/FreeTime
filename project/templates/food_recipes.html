@@ -42,7 +42,7 @@
     <h3>Topics {% if foods %}<small class="text-muted">({{ foods|length }} Topic{{ foods|length|pluralize:"s" }})</small>{% endif %}</h3>
     <hr>
     {% if foods %}
-      <div class="card-columns">
+      <div class="card-columns" style="style="max-width:40%">
         {% for food in foods %}
           {% include "partials/food_card.html" %}
         {% endfor %}
