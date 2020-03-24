@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Bellota+Text&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'atyle.css' %}">
     <title>Document</title>
 
 </head>
@@ -37,14 +36,19 @@
         </div>
     </nav>
 
-    {% block content %}
-    <!-- /.container -->
+  <div class="row">
+    <div class="col m-4">
+      <h3>{{ food.title }} <small class="text-muted">Last updated {{ food.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ food.author.username }}</b></small></h3>
+      <hr>
+      <p>{{ food.content|linebreaksbr }}</p>
+      <div class="img-wrap" id="profile-img">
+        <img class="card-img-top" src="{{ food.image.url }}" >
+       </div>
+      <hr>
+      <a href="{% url 'foods' %}" class="btn btn-danger ml-2">Back to List</a>
+      <a href="{% url 'food-delete-project' food.pk %}" class="btn btn-danger ml-2">Delete</a>
 
-    {% endblock %}
-
-
-    </body>
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    </div>
+  </div>
+  </body>
 </html>

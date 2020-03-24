@@ -36,3 +36,10 @@ class Topic(models.Model):
 
         # Call save on the superclass.
         return super(Topic, self).save(*args, **kwargs)
+
+class Food(models.Model):
+    title = models.CharField(max_length=settings.PROJECT_TOPIC_TITLE_MAX_LENGTH, unique=True,
+                            help_text="Title of your Topic.")
+    image = models.ImageField(upload_to='images/')
+    ingredients = models.TextField(
+        help_text="Write the engredients of your Food here.")

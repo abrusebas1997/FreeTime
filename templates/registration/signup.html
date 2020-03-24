@@ -14,7 +14,7 @@
                 <div class="form-group row">
                     <div class="col-8">
                       <label for="id_{{ field.name }}">{{ field.label|title }}:</label>
-                      <input class="form-control" type="{% if "password" in field.name %}password{% else %}text{% endif %}" name="{{ field.name }}" id="id_{{ field.name }}" required>
+                      <input class="form-control" type="{% if 'password' in field.name %}password{% else %}text{% endif %}" name="{{ field.name }}" id="id_{{ field.name }}" required>
                     </div>
                 </div>
             {% endfor %}

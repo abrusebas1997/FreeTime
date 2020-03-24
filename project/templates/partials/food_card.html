@@ -1,0 +1,14 @@
+<div class="card mb-3">
+  <h5 class="card-header ">{{ food.title }}</h5>
+  <div class="img-wrap" id="profile-img">
+              <img class="card-img-top" src="{{ food.image.url }}" >
+          </div>
+  <div class="card-body border-dark">
+    <p class="card-text text-dark">
+      {{ food.ingredients|truncatewords_html:30 }}
+
+      <hr>
+      <div class="text-right"><a href="{% url 'food-details-project' food.pk %}" title="Read More">Read More</a></div>
+
+  </div>
+    </div>

@@ -1,0 +1,116 @@
+<!--main background -->
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="welcome" style="background-image: url({% static 'images/background.png' %}); background-size: cover; height: 50vw;">
+<div id="card-number">
+    <div id="circle">
+        <div id="words">Activintine</div>
+    </div>
+</div>
+<div id="helper-text"> Click to get new card.</div>
+</div>
+
+<!-- <img src="./background.png" class="img-fluid" alt="Responsive image"> -->
+<!-- Page Content -->
+    <div id="cards">
+
+    <div class="container">
+        <div class="gallery">
+
+            <div class="gallery-item" id="galleryitem">
+                <a href="{% url 'topic-list-project' %}">
+                <img src="{% static 'images/mov.png' %}" alt="">
+                </a>
+            </div>
+
+            <div class="gallery-item" id="galleryitem">
+                <img src="{% static 'images/earpods.png' %}" alt="">
+            </div>
+
+            <div class="gallery-item" id="galleryitem">
+                <a href="{% url 'foods' %}">
+                <img src="{% static 'images/food.png' %}" alt="">
+                </a>
+            </div>
+
+            <div class="gallery-item" id="galleryitem">
+                <img src="{% static 'images/workout.png' %}" alt="">
+            </div>
+
+            <div class="gallery-item" id="galleryitem">
+                <img src="{% static 'images/table.png' %}" alt="">
+            </div>
+
+            <div class="gallery-item" id="galleryitem">
+                <img src="{% static 'images/vg.png' %}" alt="">
+            </div>
+
+        </div>
+
+    </div>
+    </div>
+    <!-- /.container -->
+    <div class="jumbotron jumbotron-fluid" id="jumbo">
+        <div class="container">
+            <h1 class="display-4" data-aos="zoom-in">Everything you need it's up there!</h1>
+        </div>
+    </div>
+    <script>
+        const words = document.getElementById('words')
+        const circle = document.getElementById("circle");
+        function getRandomWord() {
+          const wordList = ['Movies', 'Recipes', 'Table Games', 'Music', 'Workout', 'Fashion', 'Games']
+          const index = Math.floor(Math.random() * wordList.length)
+          console.log('Random Word:', wordList[index])
+          words.innerHTML = wordList[index]
+        }
+        circle.addEventListener('click', function(e) {
+          e.preventDefault();
+          circle.classList.remove("run-animation");
+          void circle.offsetWidth;
+          circle.classList.add("run-animation");
+        })
+        circle.addEventListener('webkitAnimationEnd', function(e) {
+          console.log('Animation Ended')
+          getRandomWord()
+        })
+
+        const text = document.querySelector('.text');
+
+        const mouseHoverAnimation = () => {
+          anime({
+            targets: text,
+            translateX: {
+              duration: 300
+            },
+            scale: {
+              value: 1.5,
+              duration: 700,
+              delay: 0,
+              easing: 'easeInOutQuart'
+            },
+            delay: 50 // All properties except 'scale' inherit 250ms delay
+          });
+        }
+        const mouseOutAnimation = () => {
+          anime({
+            targets: text,
+            translateX: {
+              duration: 300
+            },
+            scale: {
+              value: 1,
+              duration: 700,
+              delay: 200,
+              easing: 'easeInOutQuart'
+            },
+            delay: 250 // All properties except 'scale' inherit 250ms delay
+          });
+        }
+        text.addEventListener('mouseover', mouseHoverAnimation)
+        text.addEventListener('mouseout', mouseOutAnimation)
+    </script>
+
+    {% endblock %}

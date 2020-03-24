@@ -9,7 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Bellota+Text&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Patrick+Hand&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{% static 'atyle.css' %}">
     <title>Document</title>
 
 </head>
@@ -26,7 +25,9 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
             {% if user.is_authenticated %}
-        <div class="text-white">Hello, <strong>{{ user.username }}!</strong></div>
+        <div class="text-danger">Hello, <strong>{{ user.username }}!</strong></div>
+        <a href="{% url 'image_upload' %}" class="btn btn-outline-success my-2 my-sm-0" id="sign">Create Food</a>
+
         <a href="{% url 'logout' %}"  class="btn btn-outline-success my-2 my-sm-0" id="log">Log Out</a>
         {% else %}
         <a href="{% url 'login' %}" class="btn btn-outline-success my-2 my-sm-0" id="log" type="submit">Log In</a>
@@ -38,13 +39,22 @@
     </nav>
 
     {% block content %}
-    <!-- /.container -->
+    <h3>Topics {% if foods %}<small class="text-muted">({{ foods|length }} Topic{{ foods|length|pluralize:"s" }})</small>{% endif %}</h3>
+    <hr>
+    {% if foods %}
+      <div class="card-columns">
+        {% for food in foods %}
+          {% include "partials/food_card.html" %}
+        {% endfor %}
+      </div>
+    {% else %}
+      <div class="alert alert-primary" role="alert">No pages to display.</div>
+    {% endif %}
 
     {% endblock %}
 
-
-    </body>
+<script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-</html>
