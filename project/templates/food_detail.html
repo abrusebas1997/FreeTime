@@ -26,7 +26,7 @@
             <form class="form-inline my-2 my-lg-0">
             {% if user.is_authenticated %}
         <div class="text-white">Hello, <strong>{{ user.username }}!</strong></div>
-        <a href="{% url 'logout' %}"  class="btn btn-outline-success my-2 my-sm-0" id="log">Log Out</a>
+        <a href="{% url 'logout' %}"  class="btn btn-outline-success my-2 my-sm-0" id="log" style="font-size: 20px; border-color: #74bee2;border-radius: 25px; background:#ffffff; color: #1a1a1a; box-shadow: 0px 1px 1px rgb(132, 193, 228);">Log Out</a>
         {% else %}
         <a href="{% url 'login' %}" class="btn btn-outline-success my-2 my-sm-0" id="log" type="submit">Log In</a>
         <a href="{% url 'templates-signup-page' %}" class="btn btn-outline-success my-2 my-sm-0" id="sign" type="submit">Sign Up</a>
@@ -40,13 +40,13 @@
     <div class="col m-4">
       <h3>{{ food.title }} <small class="text-muted">Last updated {{ food.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ food.author.username }}</b></small></h3>
       <hr>
-      <p>{{ food.content|linebreaksbr }}</p>
       <div class="img-wrap" id="profile-img">
-        <img class="card-img-top" src="{{ food.image.url }}" >
+        <img class="card-img-top" src="{{ food.image.url }}" style="max-width:30%">
        </div>
+       <p>{{ food.ingredients}}</p>
       <hr>
-      <a href="{% url 'foods' %}" class="btn btn-danger ml-2">Back to List</a>
-      <a href="{% url 'food-delete-project' food.pk %}" class="btn btn-danger ml-2">Delete</a>
+      <a href="{% url 'foods' %}" class="btn btn-danger ml-2" style="font-size: 20px; border-color: #DF67B2;border-radius: 25px; background:#ffffff; color: #1a1a1a; box-shadow: 0px 1px 1px rgb(288, 132, 212);">Back to List</a>
+      <a href="{% url 'food-delete-project' food.pk %}" class="btn btn-danger ml-2" style="font-size: 20px; border-color: #74bee2;border-radius: 25px; background:#ffffff; color: #1a1a1a; box-shadow: 0px 1px 1px rgb(132, 193, 228);">Delete</a>
 
     </div>
   </div>
